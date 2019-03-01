@@ -69,7 +69,7 @@ server.put('/api/users/:id', (req, res) => {
     db.update(id, {name, bio})
       .then(users => {
         if(users){
-          res.status(200).json(users);
+          res.status(200).json({id, name, bio});
         }else{
           res.status(404).json({message: 'The user with the specified ID does not exist.'})
         }
